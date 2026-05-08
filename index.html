@@ -1,0 +1,1787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Binex Co., Ltd. — Visitor Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0f1f3d;
+    --navy-light: #162747;
+    --gold: #c9a84c;
+    --gold-light: #e8c76a;
+    --cream: #f8f4ee;
+    --cream-dark: #ede8de;
+    --text: #1a1a2e;
+    --text-muted: #5a5a72;
+    --white: #ffffff;
+    --border: rgba(15,31,61,0.12);
+    --card-shadow: 0 2px 20px rgba(15,31,61,0.08);
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--navy);
+    color: var(--white);
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -60px;
+    width: 280px; height: 280px;
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 50%;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -40px;
+    width: 200px; height: 200px;
+    border: 1px solid rgba(201,168,76,0.1);
+    border-radius: 50%;
+  }
+  .header-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+  header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+  }
+  header p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.6);
+    font-weight: 300;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* COMPANY CARD */
+  .company-card {
+    max-width: 900px;
+    margin: -1.5rem auto 0;
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    border: 1px solid var(--border);
+  }
+  .company-logo-placeholder {
+    width: 56px; height: 56px;
+    background: var(--navy);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .company-logo-placeholder span {
+    color: var(--gold);
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+  }
+  .company-info h2 {
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .company-info p {
+    font-size: 13px;
+    color: var(--text-muted);
+    display: flex; align-items: center; gap: 5px;
+  }
+  .company-info p svg {
+    flex-shrink: 0;
+  }
+  .company-meta {
+    margin-left: auto;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .meta-pill {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: var(--cream);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; gap: 5px;
+  }
+  .meta-pill.gold {
+    background: rgba(201,168,76,0.1);
+    color: #8a6a1a;
+    border-color: rgba(201,168,76,0.3);
+  }
+
+  /* MAIN */
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+
+  /* SECTION LABEL */
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* MAP */
+  .map-container {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: var(--card-shadow);
+    margin-bottom: 2.5rem;
+    position: relative;
+  }
+  #map {
+    width: 100%;
+    height: 380px;
+  }
+  .map-overlay {
+    position: absolute;
+    top: 16px; left: 16px;
+    background: var(--white);
+    border-radius: 10px;
+    padding: 10px 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--navy);
+    display: flex; align-items: center; gap: 8px;
+    pointer-events: none;
+  }
+  .map-dot {
+    width: 10px; height: 10px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* TRANSPORT TABS */
+  .transport-tabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .tab-btn {
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--white);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .tab-btn:hover { border-color: var(--navy); color: var(--navy); }
+  .tab-btn.active {
+    background: var(--navy);
+    color: var(--white);
+    border-color: var(--navy);
+  }
+  .tab-icon { font-size: 16px; }
+
+  /* ROUTE CARD */
+  .route-panel { display: none; }
+  .route-panel.active { display: block; }
+
+  .route-card {
+    background: var(--white);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+  }
+  .route-header {
+    background: var(--navy);
+    padding: 1.25rem 1.5rem;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .route-icon {
+    width: 44px; height: 44px;
+    background: rgba(201,168,76,0.2);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+  }
+  .route-header-text h3 {
+    font-size: 16px; font-weight: 500; color: var(--white);
+    margin-bottom: 2px;
+  }
+  .route-header-text p {
+    font-size: 12px; color: rgba(255,255,255,0.5);
+  }
+  .route-stats {
+    margin-left: auto;
+    display: flex; gap: 1.5rem;
+  }
+  .route-stat { text-align: right; }
+  .route-stat-val {
+    font-size: 18px; font-weight: 500;
+    color: var(--gold-light);
+    font-family: 'DM Serif Display', serif;
+  }
+  .route-stat-label {
+    font-size: 11px; color: rgba(255,255,255,0.45);
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+
+  .route-body { padding: 1.5rem; }
+
+  /* STEPS */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+  }
+  .steps::before {
+    content: '';
+    position: absolute;
+    left: 18px;
+    top: 36px;
+    bottom: 36px;
+    width: 1px;
+    background: var(--cream-dark);
+  }
+  .step {
+    display: flex;
+    gap: 16px;
+    padding: 14px 0;
+    position: relative;
+  }
+  .step-num {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--cream);
+    border: 2px solid var(--cream-dark);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 500;
+    color: var(--text-muted);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+  .step.highlight .step-num {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: var(--white);
+  }
+  .step-content h4 {
+    font-size: 14px; font-weight: 500;
+    color: var(--text);
+    margin-bottom: 3px;
+  }
+  .step-content p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+  .step-badge {
+    display: inline-block;
+    font-size: 11px; font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .badge-blue { background: #e8f0fe; color: #1a56b0; }
+  .badge-green { background: #e6f4ea; color: #1a7340; }
+  .badge-orange { background: #fef3e2; color: #8a5000; }
+
+  .tip-box {
+    margin-top: 1rem;
+    background: var(--cream);
+    border-radius: 10px;
+    padding: 12px 16px;
+    display: flex; gap: 10px; align-items: flex-start;
+    border: 1px solid var(--cream-dark);
+  }
+  .tip-box-icon { font-size: 18px; flex-shrink: 0; }
+  .tip-box p { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+  .tip-box strong { color: var(--text); }
+
+  /* AIRPORT SELECTOR TABS */
+  .airport-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 1.5rem;
+  }
+  .airport-tab-btn {
+    flex: 1;
+    padding: 14px 20px;
+    border-radius: 14px;
+    border: 1.5px solid var(--border);
+    background: var(--white);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    text-align: center;
+  }
+  .airport-tab-btn:hover { border-color: var(--navy); color: var(--navy); }
+  .airport-tab-btn.active {
+    background: var(--navy);
+    color: var(--white);
+    border-color: var(--navy);
+  }
+  .airport-tab-btn .airport-sub {
+    font-size: 11px;
+    opacity: 0.65;
+    display: block;
+    font-weight: 400;
+  }
+  .airport-tab-btn.active .airport-sub { opacity: 0.7; }
+  .airport-tab-inner { text-align: left; }
+  .airport-panel { display: none; }
+  .airport-panel.active { display: block; }
+
+  /* HOTELS GRID */
+  .hotels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .hotel-card {
+    background: var(--white);
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  .hotel-card:hover {
+    box-shadow: 0 6px 24px rgba(15,31,61,0.12);
+    transform: translateY(-2px);
+  }
+  .hotel-body { padding: 1rem; }
+  .hotel-name {
+    font-size: 15px; font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .hotel-tier-badge {
+    display: inline-block;
+    font-size: 11px; font-weight: 500;
+    padding: 2px 9px;
+    border-radius: 999px;
+    background: rgba(15,31,61,0.07);
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .hotel-stars { color: var(--gold); font-size: 12px; margin-bottom: 6px; }
+  .hotel-distance {
+    font-size: 12px; color: var(--text-muted);
+    display: flex; align-items: center; gap: 5px;
+    margin-bottom: 8px;
+  }
+  .hotel-features {
+    display: flex; flex-wrap: wrap; gap: 5px;
+    margin-bottom: 10px;
+  }
+  .feature-tag {
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: var(--cream);
+    color: var(--text-muted);
+    border: 1px solid var(--cream-dark);
+  }
+  .hotel-directions-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--white);
+    background: var(--navy);
+    border-radius: 8px;
+    padding: 7px 12px;
+    margin-top: 4px;
+    transition: background 0.2s;
+  }
+  .hotel-card:hover .hotel-directions-link { background: #1a3560; }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 2rem;
+    font-size: 13px;
+  }
+  footer strong { color: rgba(255,255,255,0.8); }
+
+  /* NOTICE BANNER */
+  .api-notice {
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 13px;
+    color: #7a5a10;
+    margin-bottom: 1.5rem;
+    display: flex; gap: 8px; align-items: flex-start;
+  }
+
+  @media (max-width: 640px) {
+    header { padding: 2.5rem 1.25rem 2rem; }
+    .company-card { margin: -1rem 1rem 0; padding: 1.25rem; }
+    .route-stats { display: none; }
+    .hotels-grid { grid-template-columns: 1fr; }
+  }
+
+  /* LOCATION SWITCHER */
+  .location-switcher {
+    max-width: 900px;
+    margin: 1.75rem auto 0;
+    padding: 0 1.5rem;
+    display: flex;
+    gap: 8px;
+  }
+  .loc-btn {
+    flex: 1;
+    padding: 12px 20px;
+    border-radius: 12px;
+    border: 1.5px solid var(--border);
+    background: var(--white);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .loc-btn:hover { border-color: var(--navy); color: var(--navy); }
+  .loc-btn.active {
+    background: var(--navy);
+    color: var(--white);
+    border-color: var(--navy);
+  }
+  .loc-panel { display: none; }
+  .loc-panel.active { display: block; }
+
+</style>
+</head>
+<body>
+
+<header>
+  <p class="header-eyebrow">Visitor Information · Songdo &amp; Osong Plant</p>
+  <h1>How to Reach Us</h1>
+  <p>Everything you need to plan your visit — directions, transport options, and nearby accommodations.</p>
+</header>
+
+<div style="max-width:900px; margin:0 auto; padding: 0 1.5rem;">
+  <div class="company-card">
+    <div style="flex-shrink:0;"><img src="data:image/jpeg;base64,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" alt="Binex CI" style="width:72px;height:auto;border-radius:8px;display:block;"></div>
+    <div class="company-info">
+      <h2>Binex Co., Ltd.</h2>
+      <p style="margin-bottom:4px;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-8-6.5-8-12a8 8 0 1 1 16 0c0 5.5-8 12-8 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <strong style="color:var(--text);margin-right:4px;">Songdo Plant</strong>3, Gaetbeol-ro, Yeonsu-gu, Incheon, 21999
+      </p>
+      <p>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-8-6.5-8-12a8 8 0 1 1 16 0c0 5.5-8 12-8 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <strong style="color:var(--text);margin-right:4px;">Osong Plant</strong>147, Osongsaengmyeong 5-ro, Osong-eup, Heungdeok-gu, Cheongju-si, Chungcheongbuk-do, 28160
+      </p>
+    </div>
+    <div class="company-meta">
+      <span class="meta-pill gold">📞 +82-32-850-3176</span>
+      <span class="meta-pill">🕘 Mon–Fri 09:00–18:00</span>
+    </div>
+  </div>
+</div>
+
+<div class="location-switcher">
+  <button class="loc-btn active" onclick="switchLocation('incheon')" id="lbtn-incheon">
+    🏭 <span>Songdo Plant<span style="font-size:11px;font-weight:400;opacity:0.65;display:block;"></span>
+  </button>
+  <button class="loc-btn" onclick="switchLocation('osong')" id="lbtn-osong">
+    🏭 <span>Osong Plant<span style="font-size:11px;font-weight:400;opacity:0.65;display:block;"></span>
+  </button>
+</div>
+
+<div class="loc-panel active" id="lpanel-incheon">
+<main>
+  <!-- MAP SECTION -->
+  <div class="section-label">Our location</div>
+  <div class="map-container">
+    <div id="map"></div>
+  </div>
+
+  <!-- TRANSPORT SECTION -->
+  <div class="section-label" style="margin-top:2.5rem;">Getting here</div>
+
+  <!-- AIRPORT SELECTOR -->
+  <div class="airport-tabs">
+    <button class="airport-tab-btn active" onclick="switchAirport('icn')" id="atab-icn">
+      <span style="font-size:22px;">✈️</span>
+      <div class="airport-tab-inner">
+        Incheon International Airport (ICN)
+        <span class="airport-sub">인천국제공항</span>
+      </div>
+    </button>
+    <button class="airport-tab-btn" onclick="switchAirport('gmp')" id="atab-gmp">
+      <span style="font-size:22px;">✈️</span>
+      <div class="airport-tab-inner">
+        Gimpo International Airport (GMP)
+        <span class="airport-sub">김포국제공항</span>
+      </div>
+    </button>
+  </div>
+
+  <!-- ====================================================
+       INCHEON AIRPORT PANEL
+  ==================================================== -->
+  <div class="airport-panel active" id="apanel-icn">
+    <div class="transport-tabs">
+      <button class="tab-btn active" onclick="switchTab('icn','taxi')" id="tab-icn-taxi">
+        <span class="tab-icon">🚕</span> Taxi
+      </button>
+      <button class="tab-btn" onclick="switchTab('icn','subway')" id="tab-icn-subway">
+        <span class="tab-icon">🚇</span> AREX + Subway
+      </button>
+      <button class="tab-btn" onclick="switchTab('icn','bus')" id="tab-icn-bus">
+        <span class="tab-icon">🚌</span> Limousine Bus
+      </button>
+    </div>
+
+    <!-- ICN TAXI -->
+    <div class="route-panel active" id="panel-icn-taxi">
+      <div class="route-card">
+        <div class="route-header">
+          <div class="route-icon">🚕</div>
+          <div class="route-header-text">
+            <h3>By Taxi / Kakao T</h3>
+            <p>Fastest door-to-door option from Incheon Airport</p>
+          </div>
+          <div class="route-stats">
+            <div class="route-stat">
+              <div class="route-stat-val">~35 min</div>
+              <div class="route-stat-label">Duration</div>
+            </div>
+            <div class="route-stat">
+              <div class="route-stat-val">₩30–45K</div>
+              <div class="route-stat-label">Est. Fare</div>
+            </div>
+          </div>
+        </div>
+        <div class="route-body">
+          <div class="steps">
+            <div class="step highlight">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <h4>Exit arrivals hall — Terminal 1 (1F) or Terminal 2 (1F)</h4>
+                <p>Head to the designated taxi stand on the ground floor. Look for orange "Taxi" signs near the arrival exit doors.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <h4>Choose your taxi type</h4>
+                <p>
+                  <span class="step-badge badge-orange">Regular (일반택시)</span> — Metered fare, most common.<br>
+                  <span class="step-badge badge-blue">Deluxe (모범택시)</span> — Black cabs, slightly higher fare, more English-friendly.
+                </p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <h4>Show the driver this address</h4>
+                <p>인천광역시 연수구 갯벌로 3, 바이넥스 (Binex Co., Ltd., 3 Gaetbeol-ro, Yeonsu-gu, Incheon)</p>
+              </div>
+            </div>
+            <div class="step highlight">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <h4>Arrive via Incheon Bridge (인천대교)</h4>
+                <p>The taxi will cross Incheon Bridge directly into Songdo. Our reception is on the ground floor. Call ahead if needed: <strong>+82-32-850-3176</strong></p>
+              </div>
+            </div>
+          </div>
+          <div class="tip-box">
+            <span class="tip-box-icon">📱</span>
+            <p><strong>Recommended:</strong> Use <strong>Kakao T</strong> app to pre-book a taxi from the airport. Most drivers accept KRW cash and credit cards. English support is available in-app.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ICN SUBWAY -->
+    <div class="route-panel" id="panel-icn-subway">
+      <div class="route-card">
+        <div class="route-header">
+          <div class="route-icon">🚇</div>
+          <div class="route-header-text">
+            <h3>By AREX + Incheon Metro Line 2</h3>
+            <p>Affordable and reliable, avoid traffic entirely</p>
+          </div>
+          <div class="route-stats">
+            <div class="route-stat">
+              <div class="route-stat-val">~65 min</div>
+              <div class="route-stat-label">Duration</div>
+            </div>
+            <div class="route-stat">
+              <div class="route-stat-val">~₩2,500</div>
+              <div class="route-stat-label">From ₩</div>
+            </div>
+          </div>
+        </div>
+        <div class="route-body">
+          <div class="steps">
+            <div class="step highlight">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <h4>Board AREX All-Stop Train at Incheon Airport Station</h4>
+                <p><span class="step-badge badge-blue">AREX (공항철도)</span> — Take the <strong>all-stop (일반)</strong> train, NOT the express. Head toward Seoul Station direction. Approx. 25–30 min to Geomam.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <h4>Transfer at Geomam Station (검암역) → Incheon Line 2</h4>
+                <p>Alight at Geomam and transfer to <span class="step-badge badge-green">Incheon Metro Line 2</span> heading toward Incheon National University (인천대입구) direction.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <h4>Alight at Incheon National University Station (인천대입구역)</h4>
+                <p>This is the nearest station to our office in Songdo. Use <strong>Exit 1</strong>.</p>
+              </div>
+            </div>
+            <div class="step highlight">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <h4>Short taxi to Binex Co., Ltd.</h4>
+                <p>From Exit 1, take a taxi (~5 min, ₩3,500) to 3, Gaetbeol-ro, Yeonsu-gu. The Binex building is approx. 1.2 km from the station.</p>
+              </div>
+            </div>
+          </div>
+          <div class="tip-box">
+            <span class="tip-box-icon">💳</span>
+            <p><strong>T-money card</strong> works on AREX and all Incheon metro lines. Purchase at airport vending machines or any convenience store (CU, GS25, 7-Eleven). Tap on and off at every gate.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ICN BUS -->
+    <div class="route-panel" id="panel-icn-bus">
+      <div class="route-card">
+        <div class="route-header">
+          <div class="route-icon">🚌</div>
+          <div class="route-header-text">
+            <h3>By Airport Limousine Bus</h3>
+            <p>Comfortable, luggage-friendly, direct to Songdo</p>
+          </div>
+          <div class="route-stats">
+            <div class="route-stat">
+              <div class="route-stat-val">~50 min</div>
+              <div class="route-stat-label">Duration</div>
+            </div>
+            <div class="route-stat">
+              <div class="route-stat-val">₩6–7K</div>
+              <div class="route-stat-label">Est. Fare</div>
+            </div>
+          </div>
+        </div>
+        <div class="route-body">
+          <div class="steps">
+            <div class="step highlight">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <h4>Find the bus stop — Terminal 1 (1F) or Terminal 2 (B1)</h4>
+                <p>Look for the airport limousine bus counters in the arrivals hall. Bus stop signs are clearly marked in Korean and English.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <h4>Board Bus No. 6770 toward Songdo</h4>
+                <p>
+                  <span class="step-badge badge-blue">Bus 6770</span> — Direct to Songdo International City via Incheon Bridge. Comfortable seats with luggage space.<br>
+                  <span class="step-badge badge-orange">Interval</span> Every 20–30 minutes.
+                </p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <h4>Alight at "인천대입구역" or "송도컨벤시아" stop</h4>
+                <p>Use KakaoMap or Naver Map for live stop notifications — set <strong>3, Gaetbeol-ro</strong> as your destination to know exactly when to alight.</p>
+              </div>
+            </div>
+            <div class="step highlight">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <h4>Short taxi to Binex Co., Ltd.</h4>
+                <p>From the bus stop, take a taxi (~5 min, ₩3,500) to 3, Gaetbeol-ro, Yeonsu-gu. Our building is clearly visible from Gaetbeol-ro.</p>
+              </div>
+            </div>
+          </div>
+          <div class="tip-box">
+            <span class="tip-box-icon">🗺️</span>
+            <p><strong>Recommended app:</strong> Use <strong>Naver Map</strong> or <strong>KakaoMap</strong> for real-time bus tracking. Both apps have English mode and support T-money card info.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /apanel-icn -->
+
+  <!-- ====================================================
+       GIMPO AIRPORT PANEL
+  ==================================================== -->
+  <div class="airport-panel" id="apanel-gmp">
+    <div class="transport-tabs">
+      <button class="tab-btn active" onclick="switchTab('gmp','taxi')" id="tab-gmp-taxi">
+        <span class="tab-icon">🚕</span> Taxi
+      </button>
+      <button class="tab-btn" onclick="switchTab('gmp','subway')" id="tab-gmp-subway">
+        <span class="tab-icon">🚇</span> Subway
+      </button>
+      <button class="tab-btn" onclick="switchTab('gmp','bus')" id="tab-gmp-bus">
+        <span class="tab-icon">🚌</span> Bus
+      </button>
+    </div>
+
+    <!-- GMP TAXI -->
+    <div class="route-panel active" id="panel-gmp-taxi">
+      <div class="route-card">
+        <div class="route-header">
+          <div class="route-icon">🚕</div>
+          <div class="route-header-text">
+            <h3>By Taxi / Kakao T</h3>
+            <p>Most convenient option, door-to-door</p>
+          </div>
+          <div class="route-stats">
+            <div class="route-stat">
+              <div class="route-stat-val">~40 min</div>
+              <div class="route-stat-label">Duration</div>
+            </div>
+            <div class="route-stat">
+              <div class="route-stat-val">₩35–50K</div>
+              <div class="route-stat-label">Est. Fare</div>
+            </div>
+          </div>
+        </div>
+        <div class="route-body">
+          <div class="steps">
+            <div class="step highlight">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <h4>Exit Gimpo Airport — Domestic or International Terminal (1F)</h4>
+                <p>Head to the designated taxi stand on the ground floor (Level 1). Look for the blue "Taxi" signs near the arrival exit.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <h4>Choose your taxi type</h4>
+                <p>
+                  <span class="step-badge badge-orange">Regular (일반택시)</span> — Most common, orange or silver cabs. Metered fare.<br>
+                  <span class="step-badge badge-blue">Deluxe (모범택시)</span> — Black cabs, fixed rate, more English-friendly drivers.
+                </p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <h4>Show the driver this address</h4>
+                <p>인천광역시 연수구 갯벌로 3, 바이넥스 (Binex Co., Ltd., 3 Gaetbeol-ro, Yeonsu-gu, Incheon)</p>
+              </div>
+            </div>
+            <div class="step highlight">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <h4>Arrive at Binex Co., Ltd.</h4>
+                <p>Our reception desk is on the ground floor. Please call ahead if you need assistance: <strong>+82-32-850-3176</strong></p>
+              </div>
+            </div>
+          </div>
+          <div class="tip-box">
+            <span class="tip-box-icon">📱</span>
+            <p><strong>Recommended:</strong> Use <strong>Kakao T</strong> app to book a taxi in advance. Most drivers accept both KRW cash and credit cards. English support is available in the app.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GMP SUBWAY -->
+    <div class="route-panel" id="panel-gmp-subway">
+      <div class="route-card">
+        <div class="route-header">
+          <div class="route-icon">🚇</div>
+          <div class="route-header-text">
+            <h3>By Subway (Line 9 / Incheon Line 2)</h3>
+            <p>Affordable and reliable, great for peak hours</p>
+          </div>
+          <div class="route-stats">
+            <div class="route-stat">
+              <div class="route-stat-val">~60 min</div>
+              <div class="route-stat-label">Duration</div>
+            </div>
+            <div class="route-stat">
+              <div class="route-stat-val">₩1,500</div>
+              <div class="route-stat-label">From ₩</div>
+            </div>
+          </div>
+        </div>
+        <div class="route-body">
+          <div class="steps">
+            <div class="step highlight">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <h4>Take Seoul Metro Line 9 from Gimpo Airport Station</h4>
+                <p><span class="step-badge badge-orange">Line 9 (Gold)</span> — Board toward Central Bus Terminal (중앙버스터미널) direction. Express trains skip many stops and are faster.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <h4>Transfer at Nonhyeon Station (논현역) → Incheon Line 2</h4>
+                <p>At Nonhyeon, transfer to <span class="step-badge badge-blue">Incheon Metro Line 2</span> heading toward Incheon National University (인천대입구) direction.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <h4>Alight at Incheon National University Station (인천대입구역)</h4>
+                <p>This is the nearest station to our office in Songdo. Use <strong>Exit 1</strong>.</p>
+              </div>
+            </div>
+            <div class="step highlight">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <h4>Take a taxi or bus to Binex Co., Ltd.</h4>
+                <p>From Exit 1, take a taxi (~5 min, ₩3,500) or local bus to 3, Gaetbeol-ro. The Binex building is approximately 1.2 km from the station.</p>
+              </div>
+            </div>
+          </div>
+          <div class="tip-box">
+            <span class="tip-box-icon">💳</span>
+            <p><strong>T-money card</strong> works on all Seoul/Incheon metro lines. Purchase at any convenience store (CU, GS25, 7-Eleven) or at airport vending machines. Tap on and off at every gate.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GMP BUS -->
+    <div class="route-panel" id="panel-gmp-bus">
+      <div class="route-card">
+        <div class="route-header">
+          <div class="route-icon">🚌</div>
+          <div class="route-header-text">
+            <h3>By Airport Limousine / City Bus</h3>
+            <p>Budget-friendly with luggage space</p>
+          </div>
+          <div class="route-stats">
+            <div class="route-stat">
+              <div class="route-stat-val">~50–80 min</div>
+              <div class="route-stat-label">Duration</div>
+            </div>
+            <div class="route-stat">
+              <div class="route-stat-val">₩6–17K</div>
+              <div class="route-stat-label">Est. Fare</div>
+            </div>
+          </div>
+        </div>
+        <div class="route-body">
+          <div class="steps">
+            <div class="step highlight">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <h4>Find the bus stop outside Gimpo Airport (1F, Platform 5–6)</h4>
+                <p>Ground floor (Level 1). Look for the blue airport bus signage near the arrival exits.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <h4>Board Bus No. 6770 (직행좌석) toward Songdo</h4>
+                <p>
+                  <span class="step-badge badge-blue">Bus 6770</span> — Direct express to Songdo International City, comfortable seats, luggage space available.<br>
+                  <span class="step-badge badge-orange">Interval</span> Every 20–30 minutes, fare approx. ₩2,800.
+                </p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <h4>Alight at "인천대입구역" or "송도컨벤시아" stop</h4>
+                <p>Both stops are near Songdo. Use the KakaoMap or Naver Map app in English for live stop notifications — set <strong>3, Gaetbeol-ro</strong> as destination.</p>
+              </div>
+            </div>
+            <div class="step highlight">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <h4>Short taxi to Binex Co., Ltd.</h4>
+                <p>From the bus stop, take a taxi (~5 min, ₩3,500) to 3, Gaetbeol-ro, Yeonsu-gu. Our building is clearly visible from Gaetbeol-ro.</p>
+              </div>
+            </div>
+          </div>
+          <div class="tip-box">
+            <span class="tip-box-icon">🗺️</span>
+            <p><strong>Recommended app:</strong> Use <strong>Naver Map</strong> or <strong>KakaoMap</strong> for real-time bus tracking in Korea. Both have English mode and work with T-money card payment info.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /apanel-gmp -->
+
+  <!-- HOTELS SECTION -->
+  <div class="section-label" style="margin-top:3rem;">Nearby hotels</div>
+
+  <div class="hotels-grid" id="hotels-grid">
+    <a class="hotel-card" href="https://www.google.com/maps/dir/?api=1&origin=Sheraton+Grand+Incheon+Hotel,+Songdo&destination=3+Gaetbeol-ro,+Yeonsu-gu,+Incheon&travelmode=driving" target="_blank">
+      <div class="hotel-body">
+        <div class="hotel-stars">★★★★★</div>        
+        <div class="hotel-name">Sheraton Grand Incheon Hotel</div>
+        <div class="hotel-distance">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-8-6.5-8-12a8 8 0 1 1 16 0c0 5.5-8 12-8 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          ~5 min by taxi · Songdo
+        </div>
+        <div class="hotel-directions-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12h18M13 5l7 7-7 7"/></svg>
+          Get Directions to Binex
+        </div>
+      </div>
+    </a>
+
+    <a class="hotel-card" href="https://www.google.com/maps/dir/?api=1&origin=Oakwood+Premier+Incheon,+Songdo&destination=3+Gaetbeol-ro,+Yeonsu-gu,+Incheon&travelmode=driving" target="_blank">
+      <div class="hotel-body">
+        <div class="hotel-stars">★★★★★</div>
+        <div class="hotel-name">Oakwood Premier Incheon</div>
+        <div class="hotel-distance">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-8-6.5-8-12a8 8 0 1 1 16 0c0 5.5-8 12-8 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          ~7 min by taxi · Songdo
+        </div>
+          <div class="hotel-directions-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12h18M13 5l7 7-7 7"/></svg>
+          Get Directions to Binex
+        </div>
+      </div>
+    </a>
+
+    <a class="hotel-card" href="https://www.google.com/maps/dir/?api=1&origin=Orakai+Songdo+Park+Hotel,+Incheon&destination=3+Gaetbeol-ro,+Yeonsu-gu,+Incheon&travelmode=driving" target="_blank">
+      <div class="hotel-body">
+        <div class="hotel-stars">★★★★</div>
+        <div class="hotel-name">Orakai Songdo Park Hotel</div>
+        <div class="hotel-distance">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-8-6.5-8-12a8 8 0 1 1 16 0c0 5.5-8 12-8 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          ~7 min by taxi · Songdo
+        </div>
+        <div class="hotel-directions-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12h18M13 5l7 7-7 7"/></svg>
+          Get Directions to Binex
+        </div>
+      </div>
+    </a>
+
+    <a class="hotel-card" href="https://www.google.com/maps/dir/?api=1&origin=Central+Park+Hotel+Songdo,+Incheon&destination=3+Gaetbeol-ro,+Yeonsu-gu,+Incheon&travelmode=driving" target="_blank">
+      <div class="hotel-body">
+        <div class="hotel-stars">★★★★</div>
+        <div class="hotel-name">Central Park Hotel Songdo</div>
+        <div class="hotel-distance">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-8-6.5-8-12a8 8 0 1 1 16 0c0 5.5-8 12-8 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          ~8 min by taxi · Central Park
+        </div>
+        <div class="hotel-directions-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12h18M13 5l7 7-7 7"/></svg>
+          Get Directions to Binex
+        </div>
+      </div>
+    </a>
+
+    <a class="hotel-card" href="https://www.google.com/maps/dir/?api=1&origin=Holiday+Inn+Incheon+Songdo&destination=3+Gaetbeol-ro,+Yeonsu-gu,+Incheon&travelmode=driving" target="_blank">
+      <div class="hotel-body">
+        <div class="hotel-stars">★★★★</div>
+        <div class="hotel-name">Holiday Inn Incheon Songdo</div>
+        <div class="hotel-distance">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-8-6.5-8-12a8 8 0 1 1 16 0c0 5.5-8 12-8 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          ~10 min by taxi · Songdo
+        </div>
+        <div class="hotel-directions-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12h18M13 5l7 7-7 7"/></svg>
+          Get Directions to Binex
+        </div>
+      </div>
+    </a>
+
+    <a class="hotel-card" href="https://www.google.com/maps/dir/?api=1&origin=Bridge+Hotel+Incheon+Songdo&destination=Gaetbeol-ro,+Yeonsu-gu,+Incheon&travelmode=driving" target="_blank">
+      <div class="hotel-body">
+        <div class="hotel-stars">★★★★</div>
+        <div class="hotel-name">Bridge Hotel Incheon Songdo</div>
+        <div class="hotel-distance">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-8-6.5-8-12a8 8 0 1 1 16 0c0 5.5-8 12-8 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          ~9 min by taxi · Songdo
+        </div>
+        <div class="hotel-directions-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12h18M13 5l7 7-7 7"/></svg>
+          Get Directions to Binex
+        </div>
+      </div>
+    </a>
+  </div>
+</main>
+</div><!-- /lpanel-incheon -->
+
+<!-- ========== OSONG FACTORY PANEL ========== -->
+<div class="loc-panel" id="lpanel-osong">
+<main>
+
+  <!-- MAP SECTION -->
+  <div class="section-label">Osong Plant Location</div>
+  <div class="map-container">
+    <div id="map-osong" style="width:100%;height:380px;"></div>
+  </div>
+
+  <!-- TRANSPORT SECTION -->
+  <div class="section-label" style="margin-top:2.5rem;">Getting to Osong Plant</div>
+
+  <!-- AIRPORT SELECTOR for Osong -->
+  <div class="airport-tabs">
+    <button class="airport-tab-btn active" onclick="switchAirportOsong('icn')" id="oatab-icn">
+      <span style="font-size:22px;">✈️</span>
+      <div class="airport-tab-inner">
+        Incheon International Airport (ICN)
+        <span class="airport-sub">인천국제공항</span>
+      </div>
+    </button>
+    <button class="airport-tab-btn" onclick="switchAirportOsong('gmp')" id="oatab-gmp">
+      <span style="font-size:22px;">✈️</span>
+      <div class="airport-tab-inner">
+        Cheongju International Airport (CJJ)
+        <span class="airport-sub">청주국제공항</span>
+      </div>
+    </button>
+  </div>
+
+  <!-- ====================================================
+       OSONG FROM INCHEON AIRPORT PANEL
+  ==================================================== -->
+  <div class="airport-panel active" id="oapanel-icn">
+    <div class="transport-tabs">
+      <button class="tab-btn active" onclick="switchTabOsong('icn','ktx')" id="otab-icn-ktx">
+        <span class="tab-icon">🚄</span> KTX (Recommended)
+      </button>
+      <button class="tab-btn" onclick="switchTabOsong('icn','bus')" id="otab-icn-bus">
+        <span class="tab-icon">🚌</span> Limousine Bus
+      </button>
+    </div>
+
+    <!-- ICN → OSONG KTX -->
+    <div class="route-panel active" id="opanel-icn-ktx">
+      <div class="route-card">
+        <div class="route-header">
+          <div class="route-icon">🚄</div>
+          <div class="route-header-text">
+            <h3>By AREX + KTX to Osong Station</h3>
+            <p>Most comfortable and reliable route — high-speed rail direct to Osong</p>
+          </div>
+          <div class="route-stats">
+            <div class="route-stat">
+              <div class="route-stat-val">~2h 10m</div>
+              <div class="route-stat-label">Duration</div>
+            </div>
+            <div class="route-stat">
+              <div class="route-stat-val">~₩30–50K</div>
+              <div class="route-stat-label">Est. Fare</div>
+            </div>
+          </div>
+        </div>
+        <div class="route-body">
+          <div class="steps">
+            <div class="step highlight">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <h4>Board AREX Express at Incheon Airport Station</h4>
+                <p><span class="step-badge badge-blue">AREX Express (공항철도)</span> — Take the <strong>Express (직통)</strong> train to Seoul Station. ~43 min. Tickets from ₩9,500 — buy at the station or online.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <h4>Transfer to KTX at Seoul Station (서울역)</h4>
+                <p>Head to the KTX concourse (follow "KTX" signs). Board any <span class="step-badge badge-blue">KTX</span> or <span class="step-badge badge-green">SRT</span> train heading to <strong>Busan / Mokpo / Gwangju</strong> direction — all stop at Osong. ~35 min to Osong Station.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <h4>Alight at Osong Station (오송역)</h4>
+                <p>Osong KTX Station is a major junction. Exit from the main exit and take a taxi to the factory. Taxis are available directly outside the station.</p>
+              </div>
+            </div>
+            <div class="step highlight">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <h4>Short taxi to Binex Osong Plant</h4>
+                <p>Show the driver this address: <strong>충북 청주시 흥덕구 오송읍 오송생명5로 147, 바이넥스</strong><br>(147, Osongsaengmyeong 5-ro, Osong-eup, Heungdeok-gu, Cheongju). ~5–10 min, ₩5,000.</p>
+              </div>
+            </div>
+          </div>
+          <div class="tip-box">
+            <span class="tip-box-icon">🎫</span>
+            <p><strong>Book KTX in advance</strong> at <strong>korail.go.kr</strong> or the <strong>Korail Talk</strong> app (English available). Trains run frequently — roughly every 20–30 minutes from Seoul Station to Osong.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ICN → OSONG LIMOUSINE BUS -->
+    <div class="route-panel" id="opanel-icn-bus">
+      <div class="route-card">
+        <div class="route-header">
+          <div class="route-icon">🚌</div>
+          <div class="route-header-text">
+            <h3>By Airport Limousine Bus (3200)</h3>
+            <p>Comfortable and affordable — direct bus to Cheongju, then short taxi</p>
+          </div>
+          <div class="route-stats">
+            <div class="route-stat">
+              <div class="route-stat-val">~2h 40m</div>
+              <div class="route-stat-label">Duration</div>
+            </div>
+            <div class="route-stat">
+              <div class="route-stat-val">~₩22–37K</div>
+              <div class="route-stat-label">Est. Fare</div>
+            </div>
+          </div>
+        </div>
+        <div class="route-body">
+          <div class="steps">
+            <div class="step highlight">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <h4>Find the limousine bus stop — Terminal 1 (1F) or Terminal 2 (B1)</h4>
+                <p>Head to the airport limousine bus counters in the arrivals hall. Signs are clearly marked in Korean and English. Purchase your ticket at the counter or via the <strong>Airport Bus</strong> app.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <h4>Board Bus No. 3200 toward Cheongju (청주)</h4>
+                <p>
+                  <span class="step-badge badge-blue">Bus 3200</span> — Direct express to Cheongju Bus Terminal (청주시외버스터미널) via expressway. Comfortable reclining seats with luggage space.<br>
+                  <span class="step-badge badge-orange">Interval</span> Approximately every 30–60 minutes · Fare ~₩18,400.
+                </p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <h4>Alight at Cheongju Bus Terminal (청주시외버스터미널)</h4>
+                <p>Journey takes approximately 2 hours. Upon arrival, proceed to the taxi stand directly outside the terminal exit.</p>
+              </div>
+            </div>
+            <div class="step highlight">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <h4>Taxi from Cheongju Terminal to Binex Osong Plant (~20 min)</h4>
+                <p>Show the driver: <strong>충북 청주시 흥덕구 오송읍 오송생명5로 147, 바이넥스</strong><br>(147, Osongsaengmyeong 5-ro, Osong-eup, Heungdeok-gu, Cheongju). Est. fare ~₩15,000–18,000.</p>
+              </div>
+            </div>
+          </div>
+          <div class="tip-box">
+            <span class="tip-box-icon">🗺️</span>
+            <p><strong>Recommended app:</strong> Use <strong>Naver Map</strong> or <strong>KakaoMap</strong> for real-time bus tracking. Both apps have English mode. You can also pre-purchase bus tickets on the <strong>Airport Bus</strong> (공항버스) website.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /oapanel-icn -->
+
+  <!-- ====================================================
+       OSONG FROM CHEONGJU AIRPORT PANEL
+  ==================================================== -->
+  <div class="airport-panel" id="oapanel-gmp">
+    <div class="transport-tabs">
+      <button class="tab-btn active" onclick="switchTabOsong('gmp','taxi')" id="otab-gmp-taxi">
+        <span class="tab-icon">🚕</span> Taxi (Recommended)
+      </button>
+      <button class="tab-btn" onclick="switchTabOsong('gmp','bus')" id="otab-gmp-bus">
+        <span class="tab-icon">🚌</span> Local Bus
+      </button>
+    </div>
+
+    <!-- CJJ → OSONG TAXI -->
+    <div class="route-panel active" id="opanel-gmp-taxi">
+      <div class="route-card">
+        <div class="route-header">
+          <div class="route-icon">🚕</div>
+          <div class="route-header-text">
+            <h3>By Taxi — Cheongju Airport to Osong Plant</h3>
+            <p>Fastest and most convenient — Cheongju Airport is just 15 min from the factory</p>
+          </div>
+          <div class="route-stats">
+            <div class="route-stat">
+              <div class="route-stat-val">~15–20 min</div>
+              <div class="route-stat-label">Duration</div>
+            </div>
+            <div class="route-stat">
+              <div class="route-stat-val">~₩15–20K</div>
+              <div class="route-stat-label">Est. Fare</div>
+            </div>
+          </div>
+        </div>
+        <div class="route-body">
+          <div class="steps">
+            <div class="step highlight">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <h4>Exit the arrivals hall at Cheongju International Airport (CJJ)</h4>
+                <p>Proceed to the taxi stand directly outside the arrival exit on the ground floor. Taxis are available immediately after clearing customs.</p>
+              </div>
+            </div>
+            <div class="step highlight">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <h4>Show the driver this address</h4>
+                <p><strong>충북 청주시 흥덕구 오송읍 오송생명5로 147, 바이넥스</strong><br>(Binex Co., Ltd., 147 Osongsaengmyeong 5-ro, Osong-eup, Heungdeok-gu, Cheongju). Reception is on the ground floor — call ahead: <strong>+82-32-850-3176</strong></p>
+              </div>
+            </div>
+          </div>
+          <div class="tip-box">
+            <span class="tip-box-icon">📍</span>
+            <p><strong>Cheongju Airport (CJJ)</strong> is one of the closest major airports to our Osong Plant — only ~12 km away. International flights operate from CJJ, making it the most convenient arrival point for this location.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CJJ → OSONG LOCAL BUS -->
+    <div class="route-panel" id="opanel-gmp-bus">
+      <div class="route-card">
+        <div class="route-header">
+          <div class="route-icon">🚌</div>
+          <div class="route-header-text">
+            <h3>By Local Bus from Cheongju Airport</h3>
+            <p>Budget option — local city bus connecting the airport to Osong area</p>
+          </div>
+          <div class="route-stats">
+            <div class="route-stat">
+              <div class="route-stat-val">~30–40 min</div>
+              <div class="route-stat-label">Duration</div>
+            </div>
+            <div class="route-stat">
+              <div class="route-stat-val">~₩1,500</div>
+              <div class="route-stat-label">Est. Fare</div>
+            </div>
+          </div>
+        </div>
+        <div class="route-body">
+          <div class="steps">
+            <div class="step highlight">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <h4>Exit to the bus stop in front of the airport</h4>
+                <p>Local city buses stop directly in front of Cheongju Airport (청주공항). Check the route board or use <strong>Naver Map</strong> for real-time routing toward <strong>오송읍</strong> (Osong-eup).</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <h4>Board a bus toward Osong (오송) direction</h4>
+                <p>Use <span class="step-badge badge-blue">Naver Map</span> or <span class="step-badge badge-green">KakaoMap</span> in English mode and set <strong>오송생명5로 147</strong> as your destination for exact bus numbers and stop info.</p>
+              </div>
+            </div>
+            <div class="step highlight">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <h4>Alight near Osong and take a short taxi if needed</h4>
+                <p>Depending on the route, you may alight at the nearest stop in Osong-eup and take a short taxi (~₩3,000–5,000) to the factory gate.</p>
+              </div>
+            </div>
+          </div>
+          <div class="tip-box">
+            <span class="tip-box-icon">💳</span>
+            <p><strong>T-money card</strong> works on all Cheongju city buses. Purchase at CU, GS25, or 7-Eleven convenience stores. <strong>Tip:</strong> For luggage or off-peak hours, taxi is strongly recommended over the bus.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /oapanel-cjj -->
+
+  <!-- OSONG HOTELS SECTION -->
+  <div class="section-label" style="margin-top:3rem;">Nearby hotels — Osong / Sejong</div>
+
+  <div class="hotels-grid">
+    <a class="hotel-card" href="https://www.google.com/maps/dir/?api=1&origin=H+Hotel+Osong+Sejong+City&destination=147+Osongsaengmyeong+5-ro,+Osong-eup,+Heungdeok-gu,+Cheongju&travelmode=driving" target="_blank">
+      <div class="hotel-body">
+        <div class="hotel-stars">★★★★</div>
+        <div class="hotel-name">H Hotel Osong Sejong City</div>
+        <div class="hotel-distance">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-8-6.5-8-12a8 8 0 1 1 16 0c0 5.5-8 12-8 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          ~5 min by taxi · Osong
+        </div>
+        <div class="hotel-directions-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12h18M13 5l7 7-7 7"/></svg>
+          Get Directions to Binex
+        </div>
+      </div>
+    </a>
+
+    <a class="hotel-card" href="https://www.google.com/maps/dir/?api=1&origin=Sejong+City+Osong+Hotel&destination=147+Osongsaengmyeong+5-ro,+Osong-eup,+Heungdeok-gu,+Cheongju&travelmode=driving" target="_blank">
+      <div class="hotel-body">
+        <div class="hotel-stars">★★★★</div>
+        <div class="hotel-name">Sejong City Osong Hotel</div>
+        <div class="hotel-distance">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-8-6.5-8-12a8 8 0 1 1 16 0c0 5.5-8 12-8 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          ~5 min by taxi · Osong
+        </div>
+        <div class="hotel-directions-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12h18M13 5l7 7-7 7"/></svg>
+          Get Directions to Binex
+        </div>
+      </div>
+    </a>
+
+    <a class="hotel-card" href="https://www.google.com/maps/dir/?api=1&origin=Best+Western+Plus+Hotel+Sejong&destination=147+Osongsaengmyeong+5-ro,+Osong-eup,+Heungdeok-gu,+Cheongju&travelmode=driving" target="_blank">
+      <div class="hotel-body">
+        <div class="hotel-stars">★★★★</div>
+        <div class="hotel-name">Best Western Plus Hotel Sejong</div>
+        <div class="hotel-distance">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-8-6.5-8-12a8 8 0 1 1 16 0c0 5.5-8 12-8 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          ~15 min by taxi · Sejong
+        </div>
+        <div class="hotel-directions-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12h18M13 5l7 7-7 7"/></svg>
+          Get Directions to Binex
+        </div>
+      </div>
+    </a>
+
+    <a class="hotel-card" href="https://www.google.com/maps/dir/?api=1&origin=Courtyard+by+Marriott+Sejong&destination=147+Osongsaengmyeong+5-ro,+Osong-eup,+Heungdeok-gu,+Cheongju&travelmode=driving" target="_blank">
+      <div class="hotel-body">
+        <div class="hotel-stars">★★★★</div>
+        <div class="hotel-name">Courtyard by Marriott Sejong</div>
+        <div class="hotel-distance">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-8-6.5-8-12a8 8 0 1 1 16 0c0 5.5-8 12-8 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          ~20 min by taxi · Sejong
+        </div>
+        <div class="hotel-directions-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12h18M13 5l7 7-7 7"/></svg>
+          Get Directions to Binex
+        </div>
+      </div>
+    </a>
+
+    <a class="hotel-card" href="https://www.google.com/maps/dir/?api=1&origin=Shilla+Stay+Sejong&destination=147+Osongsaengmyeong+5-ro,+Osong-eup,+Heungdeok-gu,+Cheongju&travelmode=driving" target="_blank">
+      <div class="hotel-body">
+        <div class="hotel-stars">★★★★★</div>
+        <div class="hotel-name">Shilla Stay Sejong</div>
+        <div class="hotel-distance">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-8-6.5-8-12a8 8 0 1 1 16 0c0 5.5-8 12-8 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          ~20 min by taxi · Sejong
+        </div>
+        <div style="display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:500;padding:3px 9px;border-radius:999px;background:rgba(201,168,76,0.15);color:#8a6a1a;border:1px solid rgba(201,168,76,0.3);margin-bottom:8px;">
+          🔔 Opening June 2026
+        </div>
+        <div class="hotel-directions-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12h18M13 5l7 7-7 7"/></svg>
+          Get Directions to Binex
+        </div>
+      </div>
+    </a>
+  </div>
+
+
+</main>
+</div><!-- /lpanel-osong -->
+
+<footer>
+  <p style="margin-bottom:4px;"><strong>Binex Co., Ltd.</strong></p>
+  <p style="margin-bottom:4px;">🏭 Songdo Plant — 3, Gaetbeol-ro, Yeonsu-gu, Incheon, Republic of Korea 21999</p>
+  <p style="margin-bottom:6px;">🏭 Osong Plant — 147, Osongsaengmyeong 5-ro, Osong-eup, Heungdeok-gu, Cheongju, Chungbuk</p>
+  <p>Questions? Contact us at <strong>visit@binex.co.kr</strong> &amp; call <strong>+82-32-850-3176</strong></p>
+</footer>
+
+<script>
+// ---- Location switching ----
+function switchLocation(id) {
+  document.querySelectorAll('.loc-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.loc-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('lbtn-' + id).classList.add('active');
+  document.getElementById('lpanel-' + id).classList.add('active');
+}
+
+// ---- Osong Airport tab switching ----
+function switchAirportOsong(id) {
+  document.querySelectorAll('[id^="oatab-"]').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('[id^="oapanel-"]').forEach(p => p.classList.remove('active'));
+  document.getElementById('oatab-' + id).classList.add('active');
+  document.getElementById('oapanel-' + id).classList.add('active');
+}
+
+// ---- Osong transport tab switching ----
+function switchTabOsong(airport, transport) {
+  const panel = document.getElementById('oapanel-' + airport);
+  panel.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  panel.querySelectorAll('.route-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('otab-' + airport + '-' + transport).classList.add('active');
+  document.getElementById('opanel-' + airport + '-' + transport).classList.add('active');
+}
+
+// ---- Airport tab switching ----
+function switchAirport(id) {
+  document.querySelectorAll('.airport-tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.airport-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('atab-' + id).classList.add('active');
+  document.getElementById('apanel-' + id).classList.add('active');
+  // Update map route when API key is active
+  if (window._mapDirectionsService) updateMapRoute(id);
+}
+
+// ---- Transport tab switching (scoped per airport) ----
+function switchTab(airport, transport) {
+  const panel = document.getElementById('apanel-' + airport);
+  panel.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  panel.querySelectorAll('.route-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('tab-' + airport + '-' + transport).classList.add('active');
+  document.getElementById('panel-' + airport + '-' + transport).classList.add('active');
+}
+
+// =============================================
+// GOOGLE MAPS CONFIGURATION
+// Replace the values below with your actual info
+// =============================================
+const CONFIG = {
+  apiKey: 'AIzaSyCUQl24OC9EAuizSVEhlyo_yRP0MSZNnCA',
+  companyLat:  37.3826033,   // Binex Co., Ltd. — 3, Gaetbeol-ro, Yeonsu-gu, Incheon
+  companyLng:  126.6522834,  // Songdo International City
+  companyName: 'Binex Co., Ltd.',
+  icnLat: 37.458666,        // Incheon International Airport
+  icnLng: 126.4419679,
+  gmpLat: 37.5655383,        // Gimpo International Airport
+  gmpLng: 126.8013282,
+};
+
+function updateMapRoute(airportId) {
+  const companyPos = { lat: CONFIG.companyLat, lng: CONFIG.companyLng };
+  const origin = airportId === 'icn'
+    ? { lat: CONFIG.icnLat, lng: CONFIG.icnLng }
+    : { lat: CONFIG.gmpLat, lng: CONFIG.gmpLng };
+
+  window._mapDirectionsService.route({
+    origin,
+    destination: companyPos,
+    travelMode: google.maps.TravelMode.DRIVING,
+  }, (result, status) => {
+    if (status === 'OK') window._mapDirectionsRenderer.setDirections(result);
+  });
+}
+
+function initMap() {
+  const companyPos = { lat: CONFIG.companyLat, lng: CONFIG.companyLng };
+  const icnPos     = { lat: CONFIG.icnLat,     lng: CONFIG.icnLng };
+  const gmpPos     = { lat: CONFIG.gmpLat,     lng: CONFIG.gmpLng };
+
+  const map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 10,
+    center: { lat: (CONFIG.companyLat + CONFIG.icnLat) / 2, lng: (CONFIG.companyLng + CONFIG.icnLng) / 2 },
+    styles: [
+  { featureType: 'all',                  elementType: 'geometry',       stylers: [{ color: '#f2ede4' }] },
+  { featureType: 'water',                elementType: 'geometry',       stylers: [{ color: '#b8d4e8' }] },
+  { featureType: 'road',                 elementType: 'geometry',       stylers: [{ color: '#ffffff' }] },
+  { featureType: 'road.highway',         elementType: 'geometry',       stylers: [{ color: '#e0d5c0' }] },
+  { featureType: 'road',                 elementType: 'labels.text.fill', stylers: [{ color: '#8a8070' }] },
+  { featureType: 'poi.park',             elementType: 'geometry',       stylers: [{ color: '#cde4c4' }, { visibility: 'on' }] },
+  { featureType: 'poi.park',             elementType: 'labels',         stylers: [{ visibility: 'on' }] },
+  { featureType: 'transit',              elementType: 'geometry',       stylers: [{ color: '#dfd9cc' }, { visibility: 'on' }] },
+  { featureType: 'transit.station',      elementType: 'labels',         stylers: [{ visibility: 'on' }] },
+  { featureType: 'poi',                  elementType: 'all',            stylers: [{ visibility: 'off' }] },
+  { featureType: 'poi.park',             elementType: 'geometry',       stylers: [{ visibility: 'on' }, { color: '#cde4c4' }] },
+  { featureType: 'poi.park',             elementType: 'labels',         stylers: [{ visibility: 'on' }] },
+  { featureType: 'poi.business',         elementType: 'all',            stylers: [{ visibility: 'off' }] },
+  { featureType: 'poi.medical',          elementType: 'all',            stylers: [{ visibility: 'off' }] },
+  { featureType: 'poi.school',           elementType: 'all',            stylers: [{ visibility: 'off' }] },
+  { featureType: 'poi.sports_complex',   elementType: 'all',            stylers: [{ visibility: 'off' }] },
+  { featureType: 'poi.place_of_worship', elementType: 'all',            stylers: [{ visibility: 'off' }] },
+  { featureType: 'poi.government',       elementType: 'all',            stylers: [{ visibility: 'off' }] },
+  { elementType: 'labels.text.fill',                                    stylers: [{ color: '#5a5060' }] },
+],
+    disableDefaultUI: false,
+    zoomControl: true,
+    mapTypeControl: false,
+    streetViewControl: false,
+  });
+
+// ── Company marker ──
+const companyMarker = new google.maps.Marker({
+  position: companyPos, map,
+  title: CONFIG.companyName,
+  icon: { path: google.maps.SymbolPath.CIRCLE, fillColor: '#e53935', fillOpacity: 1, strokeColor: '#ffffff', strokeWeight: 2, scale: 7 },   zIndex: 9, });
+const companyIw = new google.maps.InfoWindow({   content: '<div style="font-family:sans-serif;text-align:center;padding:4px 2px;"><div style="font-size:15px;margin-bottom:2px;">🏭</div><div style="font-size:12px;font-weight:700;color:#0f1f3d;max-width:60px;line-height:1.5;">Songdo Plant</div></div>'
+});
+companyIw.open(map, companyMarker);
+companyMarker.addListener('click', () => companyIw.open(map, companyMarker));
+
+// ── Airport markers ──
+const airportIcon = (color) => ({ path: google.maps.SymbolPath.CIRCLE, fillColor: color, fillOpacity: 1, strokeColor: '#ffffff', strokeWeight: 2, scale: 7 });
+
+const icnMarker = new google.maps.Marker({ position: icnPos, map, title: 'Incheon International Airport (ICN)', icon: airportIcon('#0f1f3d'), zIndex: 9 });
+const icnIw = new google.maps.InfoWindow({ content: '<div style="font-family:sans-serif;text-align:center;padding:4px 2px;"><div style="font-size:15px;margin-bottom:2px;">✈️</div><div style="font-size:12px;font-weight:700;color:#0f1f3d;max-width:60px;line-height:1.5;">Incheon Airport (ICN)</div></div>' });
+icnIw.open(map, icnMarker);
+icnMarker.addListener('click', () => icnIw.open(map, icnMarker));
+
+const gmpMarker = new google.maps.Marker({ position: gmpPos, map, title: 'Gimpo International Airport (GMP)', icon: airportIcon('#4a6fa5'), zIndex: 9 });
+const gmpIw = new google.maps.InfoWindow({ content: '<div style="font-family:sans-serif;text-align:center;padding:4px 2px;"><div style="font-size:15px;margin-bottom:2px;">✈️</div><div style="font-size:12px;font-weight:700;color:#0f1f3d;max-width:60px;line-height:1.5;">Gimpo Airport (GMP)</div></div>' });
+gmpMarker.addListener('click', () => gmpIw.open(map, gmpMarker));
+
+// ── Static hotel markers (Songdo area) ──
+const songdoHotels = [
+  { pos: { lat: 37.3902477, lng: 126.6455026 }, name: 'Sheraton Grand Incheon Hotel' },
+  { pos: { lat: 37.3891617, lng: 126.6441641 }, name: 'Oakwood Premier Incheon' },
+  { pos: { lat: 37.3881632, lng: 126.6409129 }, name: 'Orakai Songdo Park Hotel' },
+  { pos: { lat: 37.3905723, lng: 126.6372443 }, name: 'Songdo Central Park Hotel' },
+  { pos: { lat: 37.3932051, lng: 126.6328975 }, name: 'Holiday Inn Incheon Songdo' },
+  { pos: { lat: 37.3843682, lng: 126.6388897 }, name: 'Bridge Hotel Incheon Songdo' },
+];
+const hotelIcon = { path: google.maps.SymbolPath.CIRCLE, fillColor: '#ffffff', fillOpacity: 1, strokeColor: '#c9a84c', strokeWeight: 2, scale: 6 };
+songdoHotels.forEach(h => {
+  const m = new google.maps.Marker({ position: h.pos, map, title: h.name, icon: hotelIcon, zIndex: 5 });
+  const iw = new google.maps.InfoWindow({ content: `<div style="font-family:sans-serif;text-align:center;padding:4px 2px;"><div style="font-size:15px;margin-bottom:2px;">🏨</div><div style="font-size:12px;font-weight:700;color:#0f1f3d;max-width:60px;line-height:1.5;">${h.name}</div></div>` });
+  m.addListener('click', () => iw.open(map, m));
+});
+
+  // Directions (route line)
+  const directionsService  = new google.maps.DirectionsService();
+  const directionsRenderer = new google.maps.DirectionsRenderer({
+    suppressMarkers: true,
+    polylineOptions: { strokeColor: '#c9a84c', strokeWeight: 3, strokeOpacity: 0.7 }
+  });
+  directionsRenderer.setMap(map);
+  window._mapDirectionsService  = directionsService;
+  window._mapDirectionsRenderer = directionsRenderer;
+
+  // Draw initial route (Incheon Airport, the default active tab)
+  updateMapRoute('icn');
+
+  // ── Map legend (Songdo) ──
+  const songdoLegend = document.createElement('div');
+  songdoLegend.style.cssText = 'background:#fff;margin:8px;padding:10px 14px;border-radius:10px;font-family:sans-serif;font-size:11px;color:#444;line-height:1.8;box-shadow:0 2px 8px rgba(0,0,0,0.15);';
+  songdoLegend.innerHTML = '<div style="font-weight:700;margin-bottom:4px;color:#0f1f3d;">Map Legend</div>'
+    + '<div><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#e53935;border:2px solid #fff;margin-right:6px;vertical-align:middle;"></span>Binex Plant</div>'
+    + '<div><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#0f1f3d;border:2px solid #fff;margin-right:6px;vertical-align:middle;"></span>Airport</div>'
+    + '<div><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid #c9a84c;margin-right:6px;vertical-align:middle;"></span>Hotel</div>';
+  map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(songdoLegend);
+
+  // Initialize Osong map
+  initOsongMap();
+
+}
+
+function addHotelMarkers(hotels, map) {
+  hotels.forEach(hotel => {
+    new google.maps.Marker({
+      position: hotel.geometry.location, map,
+      title: hotel.name,
+      icon: { path: google.maps.SymbolPath.CIRCLE, fillColor: '#ffffff', fillOpacity: 1, strokeColor: '#0f1f3d', strokeWeight: 2, scale: 7 },
+    });
+  });
+}
+
+function initOsongMap() {
+  const mapEl = document.getElementById('map-osong');
+  if (!mapEl) return;
+
+  const cjjPos = { lat: 36.7219682, lng: 127.4958842 }; // Cheongju International Airport
+
+  const osongHotels = [
+  { pos: { lat: 36.6314824, lng: 127.3287927 }, name: 'H Hotel Osong Sejong City' },
+  { pos: { lat: 36.631577,  lng: 127.328431  }, name: 'Sejong City Osong Hotel' },
+  { pos: { lat: 36.5002545, lng: 127.2584363 }, name: 'Best Western Plus Hotel Sejong' },
+  { pos: { lat: 36.4960443, lng: 127.2666485 }, name: 'Courtyard by Marriott Sejong' },
+  { pos: { lat: 36.4961458, lng: 127.2586417 }, name: 'Shilla Stay Sejong (Opening Jun 2026)' },
+  ];
+
+  const sharedStyles = [
+      // Base land
+      { featureType: 'all',                  elementType: 'geometry',       stylers: [{ color: '#f2ede4' }] },
+      // Water
+      { featureType: 'water',                elementType: 'geometry',       stylers: [{ color: '#b8d4e8' }] },
+      // Roads
+      { featureType: 'road',                 elementType: 'geometry',       stylers: [{ color: '#ffffff' }] },
+      { featureType: 'road.highway',         elementType: 'geometry',       stylers: [{ color: '#e0d5c0' }] },
+      { featureType: 'road',                 elementType: 'labels.text.fill', stylers: [{ color: '#8a8070' }] },
+      // Parks — keep visible + green
+      { featureType: 'poi.park',             elementType: 'geometry',       stylers: [{ color: '#cde4c4' }, { visibility: 'on' }] },
+      { featureType: 'poi.park',             elementType: 'labels',         stylers: [{ visibility: 'on' }] },
+      // Transit — keep (subway, rail) but tone down colour
+      { featureType: 'transit',              elementType: 'geometry',       stylers: [{ color: '#dfd9cc' }, { visibility: 'on' }] },
+      { featureType: 'transit.station',      elementType: 'labels',         stylers: [{ visibility: 'on' }] },
+      // ── HIDE everything else ──
+      // All other POI (restaurants, cafes, shops, schools, hospitals…)
+      { featureType: 'poi',                  elementType: 'all',            stylers: [{ visibility: 'off' }] },
+      // Re-enable park after blanket hide
+      { featureType: 'poi.park',             elementType: 'geometry',       stylers: [{ visibility: 'on' }, { color: '#cde4c4' }] },
+      { featureType: 'poi.park',             elementType: 'labels',         stylers: [{ visibility: 'on' }] },
+      // Business / commercial labels (the floating shop names on the map)
+      { featureType: 'poi.business',         elementType: 'all',            stylers: [{ visibility: 'off' }] },
+      { featureType: 'poi.medical',          elementType: 'all',            stylers: [{ visibility: 'off' }] },
+      { featureType: 'poi.school',           elementType: 'all',            stylers: [{ visibility: 'off' }] },
+      { featureType: 'poi.sports_complex',   elementType: 'all',            stylers: [{ visibility: 'off' }] },
+      { featureType: 'poi.place_of_worship', elementType: 'all',            stylers: [{ visibility: 'off' }] },
+      { featureType: 'poi.government',       elementType: 'all',            stylers: [{ visibility: 'off' }] },
+      // General text
+      { elementType: 'labels.text.fill',                                    stylers: [{ color: '#5a5060' }] },
+    ];
+
+  // Use Geocoder to pinpoint exact Binex Osong address
+  const geocoder = new google.maps.Geocoder();
+  geocoder.geocode(
+    { address: '충청북도 청주시 흥덕구 오송읍 오송생명5로 147', region: 'KR' },
+    (results, status) => {
+      let osongPos;
+      if (status === 'OK' && results.length) {
+        osongPos = results[0].geometry.location;
+      } else {
+        // Fallback coordinates
+        osongPos = { lat: 36.6337225, lng: 127.3323051 };
+      }
+
+      const map = new google.maps.Map(mapEl, {
+        zoom: 11,
+        center: { lat: 36.650, lng: 127.390 },
+        styles: sharedStyles,
+        disableDefaultUI: false,
+        zoomControl: true,
+        mapTypeControl: false,
+        streetViewControl: false,
+      });
+
+// ── Binex Osong Plant marker ──
+const osongMarker = new google.maps.Marker({
+  position: osongPos, map,
+  title: 'Binex Osong Plant',
+  icon: { path: google.maps.SymbolPath.CIRCLE, fillColor: '#e53935', fillOpacity: 1, strokeColor: '#ffffff', strokeWeight: 2, scale: 7 }, zIndex: 9,});
+const osongIw = new google.maps.InfoWindow({ content: '<div style="font-family:sans-serif;text-align:center;padding:4px 2px;"><div style="font-size:15px;margin-bottom:2px;">🏭</div><div style="font-size:12px;font-weight:700;color:#0f1f3d;max-width:60px;line-height:1.5;">Osong Plant</div></div>' });
+osongIw.open(map, osongMarker);
+osongMarker.addListener('click', () => osongIw.open(map, osongMarker));
+
+// ── Cheongju Airport marker ──
+const cjjMarker = new google.maps.Marker({
+  position: cjjPos, map,
+  title: 'Cheongju International Airport (CJJ)',
+  icon: { path: google.maps.SymbolPath.CIRCLE, fillColor: '#0f1f3d', fillOpacity: 1, strokeColor: '#ffffff', strokeWeight: 2, scale: 7 },
+  zIndex: 9,
+});
+const cjjIw = new google.maps.InfoWindow({ content: '<div style="font-family:sans-serif;text-align:center;padding:4px 2px;"><div style="font-size:15px;margin-bottom:2px;">✈️</div><div style="font-size:12px;font-weight:700;color:#0f1f3d;max-width:60px;line-height:1.5;">Cheongju Airport (CJJ)</div></div>' });
+cjjIw.open(map, cjjMarker);
+cjjMarker.addListener('click', () => cjjIw.open(map, cjjMarker));
+
+// ── Hotel markers (white + gold border) ──
+const hotelIcon = { path: google.maps.SymbolPath.CIRCLE, fillColor: '#ffffff', fillOpacity: 1, strokeColor: '#c9a84c', strokeWeight: 2, scale: 6 };
+osongHotels.forEach(h => {
+  const m = new google.maps.Marker({ position: h.pos, map, title: h.name, icon: hotelIcon, zIndex: 5 });
+  const iw = new google.maps.InfoWindow({ content: `<div style="font-family:sans-serif;text-align:center;padding:4px 2px;"><div style="font-size:15px;margin-bottom:2px;">🏨</div><div style="font-size:12px;font-weight:700;color:#0f1f3d;max-width:60px;line-height:1.5;">${h.name}</div></div>` });
+  m.addListener('click', () => iw.open(map, m));
+});
+// ── KTX Station markers ──
+const stationIcon = { path: google.maps.SymbolPath.CIRCLE, fillColor: '#1a73e8', fillOpacity: 1, strokeColor: '#ffffff', strokeWeight: 2, scale: 6 };
+
+const gwangmyeongMarker = new google.maps.Marker({
+  position: { lat: 37.416522, lng: 126.884789 }, map,
+  title: 'Gwangmyeong KTX Station',
+  icon: stationIcon, zIndex: 7,
+});
+const gwangmyeongIw = new google.maps.InfoWindow({ content: '<div style="font-family:sans-serif;text-align:center;padding:4px 2px;"><div style="font-size:15px;margin-bottom:2px;">🚄</div><div style="font-size:12px;font-weight:700;color:#0f1f3d;max-width:60px;line-height:1.5;">Osong Station</div></div>'});
+gwangmyeongMarker.addListener('click', () => gwangmyeongIw.open(map, gwangmyeongMarker));
+
+const osongStationMarker = new google.maps.Marker({
+  position: { lat: 36.620557, lng: 127.327377 }, map,
+  title: 'Osong Station',
+  icon: stationIcon, zIndex: 7,
+});
+const osongStationIw = new google.maps.InfoWindow({ content: '<div style="font-family:sans-serif;text-align:center;padding:4px 2px;"><div style="font-size:15px;margin-bottom:2px;">🚄</div><div style="font-size:12px;font-weight:700;color:#0f1f3d;max-width:60px;line-height:1.5;">Osong Station</div></div>' });
+osongStationMarker.addListener('click', () => osongStationIw.open(map, osongStationMarker));
+
+      // ── Map legend(osong) ──
+      const legend = document.createElement('div');
+      legend.style.cssText = 'background:#fff;margin:8px;padding:10px 14px;border-radius:10px;font-family:sans-serif;font-size:11px;color:#444;line-height:1.8;box-shadow:0 2px 8px rgba(0,0,0,0.15);';
+      legend.innerHTML = '<div style="font-weight:700;margin-bottom:4px;color:#0f1f3d;">Map Legend</div>'
+        + '<div><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#e53935;border:2px solid #fff;margin-right:6px;vertical-align:middle;"></span>Binex Plant</div>'
+        + '<div><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#0f1f3d;border:2px solid #fff;margin-right:6px;vertical-align:middle;"></span>Airport</div>'
+        + '<div><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#1a73e8;border:2px solid #fff;margin-right:6px;vertical-align:middle;"></span>KTX Station</div>'
+        + '<div><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid #c9a84c;margin-right:6px;vertical-align:middle;"></span>Hotel</div>';
+      map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
+
+      // ── Route line: CJJ → Osong Plant ──
+      const ds = new google.maps.DirectionsService();
+      const dr = new google.maps.DirectionsRenderer({
+        suppressMarkers: true,
+        polylineOptions: { strokeColor: '#c9a84c', strokeWeight: 3, strokeOpacity: 0.65 }
+      });
+      dr.setMap(map);
+      ds.route({ origin: cjjPos, destination: osongPos, travelMode: google.maps.TravelMode.DRIVING },
+        (result, status) => { if (status === 'OK') dr.setDirections(result); });
+    }
+  );
+}
+</script>
+
+<!-- =============================================
+  REPLACE YOUR_GOOGLE_MAPS_API_KEY BELOW
+  Required APIs: Maps JavaScript API, Places API, Directions API
+  Get a key at: https://console.cloud.google.com/google/maps-apis
+============================================= -->
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUQl24OC9EAuizSVEhlyo_yRP0MSZNnCA&libraries=places&callback=initMap&language=en&region=US">
+</script>
+
+</body>
+</html>
